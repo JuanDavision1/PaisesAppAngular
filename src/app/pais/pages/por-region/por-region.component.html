@@ -1,0 +1,36 @@
+<h3>Buscar por region<small> {{regionActiva|titlecase}}</small></h3>
+<hr>
+<h5>Seleccione la region</h5>
+<div class="col">
+    <div class="col">
+<button  *ngFor="let region of regiones"
+[class]="getClaseCss(region)"
+(click)="activarregio(region)">{{region|titlecase}}</button>
+</div></div>
+<div *ngIf="paisesArr.length > 0 "class="row">
+    <div class="col">
+        <!-- se tiene que mandar la info de paisesasarreglo o sino no se mostrara -->
+      <app-pais-tabla [paisesArr]="paisesArr"></app-pais-tabla>
+    </div>
+</div>
+
+<!-- condiconales para resaltar cuand se le hace click -->
+<!--[class.btn-primary]="region === regionActiva" al poner [class.nombredelaclase]= se realiza la condicion y esta quedara activa y por lo tanto asignarle un estilo -->
+
+
+<!-- 
+[ngClass]="{
+    'clases de css:true'
+}"
+si esto regresa true aplicara cualquier css que alli esta
+[ngClass]="{
+    'btn-primary':regionActiva ===region,
+    'btn-outline-primary':regionActiva !==region
+   
+}"
+
+-->
+
+<!-- 
+[class]="(region === regionActiva)? 'btn btn-primary' : 'btn btn-outline-primary' "
+esta es otra forma con operador ternario mas simple  -->

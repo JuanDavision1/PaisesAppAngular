@@ -1,0 +1,44 @@
+<div *ngIf="!pais;else divpais"   class="alert alert-info">
+    espere porfavor..
+</div>
+<ng-template #divpais>
+    <div class="row">
+        <div class="col">
+            <h1>Pais:<small>{{pais.name}}</small></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Bandera</h3>
+            <img [src]="pais.flags.png" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                <strong>Poblacion:</strong> {{pais.population}}</li>
+                <li class="list-group-item">
+                    <strong>Codigo Numerico:</strong> {{pais.numericCode}}</li>
+                <li class="list-group-item">
+                        <strong>Codigo Alpha3:</strong> {{pais.alpha3Code}}</li>
+            </ul>
+        </div>
+    </div>
+    <h3>Traducciones</h3>
+    <div class="row">
+        <div class="col">
+<span class="bandge bg-primary mr-1">{{pais.translations.de}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.es}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.fr}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.ja}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.de}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.de}}</span>
+<span class="bandge bg-primary mr-1">{{pais.translations.fa}}</span>
+        </div>
+    </div>
+    <pre class="mt-5">
+        {{pais | json }}
+
+    </pre>
+</ng-template>
+

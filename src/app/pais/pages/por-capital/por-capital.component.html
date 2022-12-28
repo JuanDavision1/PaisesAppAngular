@@ -1,0 +1,23 @@
+<h2>Por Capital</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <!-- escuchar el evento emitido por el inputcomponent.ts -->
+        <app-pais-input
+        (onEnter)="buscar($event)"
+       
+        Placeholder="Buscar capital..">
+
+        </app-pais-input>
+    </div>
+</div>
+<hr>
+<!-- si hay error se muestra el hay error si no no se muestra -->
+<div *ngIf="hayerror"
+class="alert alert-danger"> No se encontro con el termino {{termino}}</div>
+<div *ngIf="paisesArr.length > 0 "class="row">
+    <div class="col">
+        <!-- se tiene que mandar la info de paisesasarreglo o sino no se mostrara -->
+      <app-pais-tabla [paisesArr]="paisesArr"></app-pais-tabla>
+    </div>
+</div>
